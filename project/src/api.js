@@ -1,0 +1,1 @@
+export const api = `https://car-rental-backend-wocw.onrender.com/api`

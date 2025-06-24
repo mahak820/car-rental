@@ -1,7 +1,8 @@
 import axios from "axios"
+import { api } from "../../api"
 // get car
 const fetchCars = async() =>{
-const response = await axios.get("/api/car")
+const response = await axios.get(`${api}/car`)
 return response.data
 }
 // add car
@@ -11,7 +12,7 @@ const addCar = async(newCar,token) =>{
             authorization : `Bearer ${token}`
         }
     }
-    const response = await axios.post("/api/admin/car",newCar , options)      
+    const response = await axios.post(`${api}/admin/car`,newCar , options)      
     return response.data  
 }
 // deletecar
@@ -23,7 +24,7 @@ let options = {
         authorization : `Bearer ${token}`
     }
 }
-const response = await axios.delete(`/api/admin/car/${cid}` ,options)
+const response = await axios.delete(`${api}/admin/car/${cid}` ,options)
 return response.data
 
 }
@@ -36,7 +37,7 @@ const editCar = async(cid,editCarData,token)=>{
             authorization : `Bearer ${token}`
         }
     }
-const response = await axios.put(`/api/admin/car/${cid}`,editCarData,options)
+const response = await axios.put(`${api}/admin/car/${cid}`,editCarData,options)
 return response.data
 
 }
@@ -49,7 +50,7 @@ const fetchSingleCar = async(cid,token) =>{
             authorization : `Bearer ${token}`
         }
     }
-const response = await axios.get(`/api/car/${cid}`,options)
+const response = await axios.get(`${api}/car/${cid}`,options)
 
 return response.data
 

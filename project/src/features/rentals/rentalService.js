@@ -1,4 +1,5 @@
 import axios from "axios"
+import { api } from "../../api"
 
 const getRentalService = async (token) =>{
    let options = {
@@ -6,7 +7,7 @@ const getRentalService = async (token) =>{
          authorization : `Bearer ${token}`
     }
    } 
-   const response = await axios.get("/api/admin/rentals",options)
+   const response = await axios.get(`${api}/admin/rentals`,options)
    return response.data
    
 }
@@ -18,7 +19,7 @@ const addRental = async (cid, selectedDates,token) =>{
          authorization : `Bearer ${token}`
     }
    } 
-   const response = await axios.post(`/api/rentals/${cid}`, selectedDates,options)
+   const response = await axios.post(`${api}/rentals/${cid}`, selectedDates,options)
    console.log(response.data)
    return response.data
 }
@@ -30,7 +31,7 @@ const allRentals = async (uid , token) =>{
          authorization : `Bearer ${token}`
     }
    } 
-   const response = await axios.get(`/api/rentals/${uid}`,options)
+   const response = await axios.get(`${api}/rentals/${uid}`,options)
  
  return response.data
 }
@@ -44,7 +45,7 @@ const editRental = async (rid,formData , token) =>{
          authorization : `Bearer ${token}`
     }
    } 
-   const response = await axios.put(`/api/rentals/${rid}`,formData,options)
+   const response = await axios.put(`${api}/rentals/${rid}`,formData,options)
  
  return response.data
 }
@@ -57,7 +58,7 @@ const deleterental = async (rid, token) =>{
          authorization : `Bearer ${token}`
     }
    } 
-   const response = await axios.delete(`/api/rentals/${rid}`,options)
+   const response = await axios.delete(`${api}/rentals/${rid}`,options)
  
  return response.data
 }

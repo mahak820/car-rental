@@ -24,17 +24,17 @@ const userSchema = new mongoose.Schema(
         type :String,
        
     },
+    isAdmin :{
+        type :Boolean,
+        default : false
+        
+    },
     license :{
         type :String,
         required : false
       
        
     },
-    isAdmin :{
-        type :Boolean,
-        default : false
-        
-    }
 },
 {
     timestamps : true

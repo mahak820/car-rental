@@ -9,7 +9,7 @@ export default defineConfig({
       '/api' :{
         changeorigin : true,
         secure : false, 
-        target : 'http://localhost:8080'
+        target : 'https://car-rental-backend-wocw.onrender.com/'
       }
     }
   }
