@@ -1,8 +1,13 @@
 import axios from "axios"
 import { api } from "../../api"
 // get car
-const fetchCars = async() =>{
-const response = await axios.get(`${api}/car`)
+const fetchCars = async(token) =>{
+     let options = {
+        headers : {
+            authorization : `Bearer ${token}`
+        }
+    }
+const response = await axios.get(`${api}/car`,options)
 return response.data
 }
 // add car

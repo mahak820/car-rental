@@ -125,8 +125,10 @@ export default carSlice.reducer
 
 // get car
 export const getCars = createAsyncThunk("FETCH/CARS", async(_,thunkAPI)=>{
+         let token = thunkAPI.getState().auth.user.token
+
     try{
- return await carService.fetchCars()
+ return await carService.fetchCars(token)
     }catch(error){
        const message = error.response.data.message
        return thunkAPI.rejectWithValue(message) 
